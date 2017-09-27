@@ -1,0 +1,36 @@
+@import models.users.User
+@(addReservationsForm: Form[models.Reservations], user: User)
+
+@import helper._
+
+@main("Reservation", user) {
+    <h1>Reservations</h1>
+
+    @if(addReservationsForm.hasGlobalErrors) {
+        <p class="alert alert-warning">
+        @addReservationsForm.globalError.message
+        </p>
+    }
+
+    @form(action = routes.ReservationsController.reservationsSubmit(),'class -> "form-horizontal", 'role->"form"){
+
+
+        @inputText(addReservationsForm("email"), '_label -> "Email",'class -> "form-control")
+        @inputText(addReservationsForm("name"), '_label -> "Name",'class -> "form-control")
+        @inputText(addReservationsForm("phone"), '_label -> "Phone",'class -> "form-control")
+        @inputDate(addReservationsForm("date"), '_label -> "Date",'class -> "form-control")
+        @inputText(addReservationsForm("number_People"), '_label -> "Number of people",'class -> "form-control")
+
+
+        <div class="action">
+            <input type="submit" value="Add Reservations" class="btn btn-primary">
+            <button type="cancel" class="btn btn-primary" onclick="window.location='@routes.HomeController.index()';return false;">Cancel</button>
+
+
+        </div>
+
+
+    }
+
+
+}

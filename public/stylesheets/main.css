@@ -1,0 +1,209 @@
+article, aside, details, figcaption, figure, footer, header, hgroup, menu, nav, section {
+  display: block;
+}
+
+
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+#pageWrap {
+    width: 60%;
+    margin: 0 auto;
+    padding-left: 15px;
+}
+body {
+  background-color: #f6ffbd;
+}
+
+footer {
+  clear: both;
+    background-color: #FFF3C3;
+    height: 150px;
+    width: 100%;
+}
+
+footer p {
+    line-height: 10px;
+}
+
+footer img {
+    width: 50%;
+    height: auto;
+    margin: 40px 0 0 40px;
+}
+
+nav {
+  height: 70px;
+  background-color: #FFF3C3;
+}
+
+nav img {
+  width: auto;
+  max-height: 70px;
+  float: left;
+}
+
+#mainNav {
+  float: left;
+  width: auto;
+  height: 70px;
+  margin: 0 auto;
+  position: relative;
+  padding: 0;
+}
+
+main {
+  clear: both;
+}
+
+nav li {
+    display: inline;
+    float: left;
+}
+
+nav ul li a {
+    display: inline-block;
+    width: 100px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-align: center;
+    line-height: 70px;
+    border-right: 1px solid #576979;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+}
+
+nav li:last-child a {
+  border-right: 0;
+}
+
+.dropdown {
+  display: none;
+}
+
+.col-1 {width: 8.33%;}
+.col-2 {width: 16.66%;}
+.col-3 {width: 25%;}
+.col-4 {width: 33.33%;}
+.col-5 {width: 41.66%;}
+.col-6 {width: 50%;}
+.col-7 {width: 58.33%;}
+.col-8 {width: 66.66%;}
+.col-9 {width: 75%;}
+.col-10 {width: 83.33%;}
+.col-11 {width: 91.66%;}
+.col-12 {width: 100%;}
+
+[class*="col-"] {
+    float: left;
+    padding: 15px;
+    box-sizing:border-box;
+    -moz-box-sizing:border-box;
+    -webkit-box-sizing:border-box;
+
+}
+
+.wrapper {
+    width: 980px;
+    margin: 0 auto;
+}
+
+#pageWrap main .col-3 img {
+    float: right;
+    margin-top: -5px;
+}
+
+#pageWrap main p {
+    line-height: 1.2;
+    font-size: 14px;
+}
+
+#pageWrap main h1 {
+    clear: both;
+    color: #52971e;
+}
+
+main .col-2 ul {
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+    margin-top: 20px;
+
+}
+
+main .col-2 li a {
+    display: block;
+    width: 100px;
+    text-decoration: none;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: black;
+    text-align: center;
+    line-height: 50px;
+}
+
+#menuItem a {
+    float: left;
+}
+
+.btn {
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    padding: 5px 5px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.adminView {
+     display: none;
+ }
+
+.col-6 {
+    background-repeat: no-repeat;
+    background-position: center;
+
+}
+
+.specialVeg {
+    -ms-transform: rotate(15deg);
+    -webkit-transform: rotate(15deg);
+}
+
+.specialBeef {
+    -ms-transform: rotate(-10deg);
+    -webkit-transform: rotate(-10deg);
+}
+
+.specialBeef p{
+    color: white;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+
+
+.specialVeg p{
+    color: white;
+    text-align: center;
+    vertical-align: bottom;
+}
+
+.aboveFooter {
+    height: 100px;
+}
+
+.aboutUs {
+    text-align: center;
+    line-height: 100%;
+    font-family: Calibri;
+}
+

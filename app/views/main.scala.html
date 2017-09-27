@@ -1,0 +1,131 @@
+@*
+ * This template is called from the `index` template. This template
+ * handles the rendering of the page header and body tags. It takes
+ * two arguments, a `String` for the title of the page and an `Html`
+ * object to insert into the body of the page.
+ *@
+
+@import helper._
+
+@(title: String, user: models.users.User)(content: Html)
+
+
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        @* Here's where we render the page title `String`. *@
+        <title>Real Gourmet Burger</title>
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/main.css")">
+        <link rel="stylesheet" media="screen" href="@routes.Assets.versioned("stylesheets/media-queries.css")">
+        <link rel="shortcut icon" type="image/png" href="@routes.Assets.versioned("images/logo.png")">
+        <script src="@routes.Assets.versioned("javascripts/hello.js")" type="text/javascript"></script>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+        <!--[if lt IE 9]>
+	      <script src="http://html5shim.googlecode.com/svn/trunk/html5.js"></script>
+        <![endif]-->
+
+
+
+
+
+            <!-- Latest compiled and minified CSS-->
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+
+
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
+
+
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
+
+
+
+
+
+    </head>
+    <body>
+
+            <nav>
+                <a href="/"><img src="@routes.Assets.versioned("images/realSmall.png")"></a>
+                    <ul id="mainNav">
+                        <li><a href="@routes.HomeController.index()">Home</a></li>
+                        <li><a href="@routes.HomeController.menu()">Menu</a></li>
+                        <li><a href="@routes.ReservationsController.reservations()">Reservations</a></li>
+                        <li><a href="@routes.HomeController.aboutus()">About Us</a></li>
+                        <li><a href="@routes.ContactusController.contactus()">Contact Us</a></li>
+
+                        <li><a href="@routes.HomeController.productsView()">All View</a>
+                        </li>
+                        <li><a href="@routes.HomeController.staffView()">Staff View</a></li>
+
+
+                    <li @if(title == "Login"){class="active"}>
+                    @if(user != null){
+                        <a href="@routes.LoginController.logout()">Logout @user.getName()</a>
+                    } else {
+                        <a href="@routes.LoginController.login()">Login</a>
+                    }
+                    </li>
+                    <li><a href="@routes.RegisterController.register()">Register</a></li>
+                        <li>
+                            <a href="@routes.ShoppingController.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                        </li>
+                </ul>
+
+                    <div class="dropdown">
+                      <button class="dropbtn">Menu</button>
+                      <div class="dropdown-content">
+                        <ul id="480Nav">
+                            <li><a href="@routes.HomeController.index()">Home</a></li>
+                            <li><a href="@routes.HomeController.menu()">Menu</a></li>
+                            <li><a href="@routes.ReservationsController.reservations()">Reservations</a></li>
+                            <li><a href="@routes.HomeController.aboutus()">About Us</a></li>
+                            <li><a href="@routes.ContactusController.contactus()">Contact Us</a></li>
+                            <li><a href="@routes.HomeController.productsView()">All View</a></li>
+                            <li><a href="@routes.HomeController.staffView()">Staff View</a></li>
+
+                              <li @if(title == "Login"){class="active"}>
+                              @if(user != null){
+                                  <a href="@routes.LoginController.logout()">Logout @user.getName()</a>
+                              } else {
+                                  <a href="@routes.LoginController.login()">Login</a>
+                              }
+                              </li>
+                              <li><a href="@routes.RegisterController.register()">Register</a></li>
+                            <li>
+                                <a href="@routes.ShoppingController.showBasket()"><span class="glyphicon glyphicon-shopping-cart"></span></a>
+                            </li>
+                          </ul>
+                    </div>
+</div>
+            </nav>
+            <div id="pageWrap">
+            <main>
+            @content
+            </main>
+            </div>
+            <footer>
+                <div class="wrapper">
+                  <div class="row">
+                      <div class="col-4 col-m-4">
+                          <h4><span class="glyphicon glyphicon-home">&nbsp;Real Gourmet Burger</span></h4>
+                          <p>101 Terenure Road East</p>
+                          <p>Terenure, Dublin 6</p>
+                          <p><span class="glyphicon glyphicon-phone-alt">&nbsp;01-492-0222</span></p>
+                          <p><span class="glyphicon glyphicon-envelope">&nbsp;realterenure&#64;gmail.com</span></p>
+                      </div>
+                      <div class="col-4 col-m-4">
+                          <h4>Opening Hours</h4>
+                          <p>Monday: 17:00 - 21:30</p>
+                          <p>Tuesday - Thursday: 12:00 - 21:30</p>
+                          <p>Friday - Saturday: 12:00 - 22:00</p>
+                          <p>Sunday: 12:00 - 21:30</p>
+                      </div>
+                      <div class="col-4 col-m-4">
+                          <a href="http://www.facebook.com/RealGBT/" target="_blank"><img src="@routes.Assets.versioned("images/fbIcon.png")"></a>
+                      </div>
+                  </div>
+                </div>
+            </footer>
+
+    </body>
+</html>

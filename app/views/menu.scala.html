@@ -1,0 +1,230 @@
+@import models.users.User
+@(menu: List[models.Product], user: User)
+
+@import helper._
+
+
+@main("menu", user) {
+    <div class="row">
+        <div class="col-2">
+            <ul>
+                <li><a href="#appetiser">Appetiser</a></li>
+                <li><a href="#sides">Sides</a></li>
+                <li><a href="#burgers">Burgers</a></li>
+                <li><a href="#lamb">Lamb</a></li>
+                <li><a href="#chicken">Chicken</a></li>
+                <li><a href="#beef">Beef</a></li>
+            </ul>
+        </div>
+        <div class="col-7">
+
+            <h1 id="appetiser">appetiser</h1>
+            <hr>
+
+
+                <!-- Start of for loop - for each product add the approprate html elements -->
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("starter") && value.getInStock.equals(true)){
+                    <div class="menuItem">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5><strong>@value.getName</strong></h5>
+                                <p>@value.getDescription</p>
+                            </div>
+                            <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                                <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                                </a>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+                <!-- End of the Loop -->
+
+            <h1 id="sides">sides</h1>
+            <hr>
+
+
+                <!-- Start of for loop - for each product add the approprate html elements -->
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("side") && value.getInStock.equals(true)){
+                    <div class="menuItem">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5><strong>@value.getName</strong></h5>
+                                <p>@value.getDescription</p>
+                            </div>
+                            <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                                <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                            </a>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+                <!-- End of the Loop -->
+
+
+            <h1 id="burgers">burgers</h1>
+            <hr>
+
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("burger") && value.getInStock.equals(true)){
+                    <div class="menuItem">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5><strong>@value.getName</strong></h5>
+                                <p>@value.getDescription</p>
+                            </div>
+                            <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                                <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                    <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                                </a>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+
+            <h1 id="lamb">lamb</h1>
+            <hr>
+
+
+                <!-- Start of for loop - for each product add the approprate html elements -->
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("lamb") && value.getInStock.equals(true)){
+                    <div class="menuItem">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5><strong>@value.getName</strong></h5>
+                                <p>@value.getDescription</p>
+                            </div>
+                            <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                                <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                    <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                                </a>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+                <!-- End of the Loop -->
+
+
+            <h1 id="chicken">chicken</h1>
+            <hr>
+
+                <!-- Start of for loop - for each product add the approprate html elements -->
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("chicken") && value.getInStock.equals(true)){
+                    <div class="menuItem">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5><strong>@value.getName</strong></h5>
+                                <p>@value.getDescription</p>
+                            </div>
+                            <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                                <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                    <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                                </a>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+                <!-- End of the Loop -->
+
+
+
+
+            <h1 id="beef">beef</h1>
+            <hr>
+
+
+                <!-- Start of for loop - for each product add the approprate html elements -->
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("beef") && value.getInStock.equals(true)){
+                <div class="menuItem">
+                    <div class="row">
+                            <div class="col-9">
+                            <h5><strong>@value.getName</strong></h5>
+                            <p>@value.getDescription</p>
+                        </div>
+                        <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                            <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                            </a>
+
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+                }
+            }
+            <!-- End of the Loop -->
+
+            <h1 id="vegetarian">vegetarian</h1>
+            <hr>
+
+
+                <!-- Start of for loop - for each product add the approprate html elements -->
+            @for(value <- menu) {
+                @if(value.getType.equalsIgnoreCase("vegetarian") && value.getInStock.equals(true)){
+                    <div class="menuItem">
+                        <div class="row">
+                            <div class="col-9">
+                                <h5><strong>@value.getName</strong></h5>
+                                <p>@value.getDescription</p>
+                            </div>
+                            <div class="col-3"><h5>&euro; @("%.2f".format(value.getPrice))</h5>
+                                <a href="@routes.ShoppingController.addToBasket(value.getId)"  class="btn btn-default btn-xs">
+                                    <img src="@routes.Assets.versioned("images/addToSCSmall.png")">
+                                </a>
+
+                            </div>
+
+
+
+
+                        </div>
+                    </div>
+                }
+            }
+
+        </div>
+
+
+    </div>
+
+
+}

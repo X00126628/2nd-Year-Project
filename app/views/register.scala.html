@@ -1,0 +1,33 @@
+@import models.users.User
+@(addUserForm: Form[models.users.User], user: User)
+
+
+@import helper._
+@main("Add User", user) {
+
+        <h3>Register</h3>
+        @if(addUserForm.hasGlobalErrors) {
+                <p class="alert alert-warning">
+                @addUserForm.globalError.message
+                </p>
+        }
+
+        @form(action = routes.RegisterController.registerSubmit(),'class -> "form-horizontal", 'role->"form"){
+
+
+                @inputText(addUserForm("email"), '_label -> "Email",'class -> "form-control")
+                @inputText(addUserForm("name"), '_label -> "Name",'class -> "form-control")
+                @inputPassword(addUserForm("password"), '_label -> "Password",'class -> "form-control")
+                @inputPassword(addUserForm("confirmPassword"), '_label -> "Confirm Password",'class -> "form-control")
+
+                <div class="action">
+                        <input type="submit" value="Add User" class="btn btn-primary">
+                    <button type="cancel" class="btn btn-primary" onclick="window.location='@routes.HomeController.index()';return false;">Cancel</button>
+
+
+                </div>
+
+
+        }
+
+}

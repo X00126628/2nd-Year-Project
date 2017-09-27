@@ -1,0 +1,84 @@
+@import models.users.User
+@(productsView: List[models.Product], user: User)
+
+@import helper._
+
+@main("productsView", user) {
+
+
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+            <th>Price</th>
+            <th>Type</th>
+            <th>In Stock</th>
+            <th>Delete</th>
+            <th>Update</th>
+        </tr>
+    </thead>
+    <tbody>
+
+
+        <!-- Start of for loop - for each product add the approprate html elements -->
+    @for(value <- productsView) {
+
+           <tr>
+               <td><h5><strong>@value.getName</strong></h5></td>
+               <td><p>@value.getDescription</p></td>
+               <td><h5>&euro; @("%.2f".format(value.getPrice))</h5></td>
+               <td><p>@value.getType</p></td>
+               <td><p>@value.getInStock</td>
+               <td>
+                   <a href="@routes.HomeController.deleteProduct(value.getId)"  onclick="return confirmDel();">
+                   <button class="btn btn-success">Delete</button>
+                    </a>
+               </td>
+               <td>
+                   <a href="@routes.HomeController.updateProduct(value.getId)" onclick="return confirmUpdate();">
+                       <button class="btn btn-success">Update</button>
+                   </a>
+               </td>
+           </tr>
+        }  <!-- End of the Loop -->
+
+    </tbody>
+</table>
+
+
+
+    <div class="col-3">
+
+        <p>
+            <a href="@routes.HomeController.addProduct()">
+                <button class="btn">Add a Product</button>
+            </a>
+        </p>
+
+        @if(flash.containsKey("success")){
+            <div class="alert alert-success">
+                @flash.get("success");
+            </div>
+        }
+
+    </div>
+
+
+
+    <script>
+            function confirmDel(){
+                return confirm('Are you sure?');
+            }
+
+            function confirmUpdate(){
+                return confirm('The product will be updated. Are you sure?');
+            }
+    </script>
+
+
+}
+
+
+
+

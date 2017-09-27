@@ -1,0 +1,34 @@
+@import models.users.User
+@(addContactusForm: Form[models.Contactus], user: User)
+
+@import helper._
+
+@main("contactus", user) {
+
+  <h2>Contact Us</h2>
+
+  @if(addContactusForm.hasGlobalErrors) {
+    <p class="alert alert-warning">
+    @addContactusForm.globalError.message
+    </p>
+  }
+
+  @form(action = routes.ContactusController.contactusSubmit(),'class -> "form-horizontal", 'role->"form"){
+
+
+    @inputText(addContactusForm("email"), '_label -> "Email",'class -> "form-control")
+    @inputText(addContactusForm("name"), '_label -> "Name",'class -> "form-control")
+    @textarea(addContactusForm("comment"), '_label -> "Comments",'class -> "form-control")
+
+    <div class="action">
+      <input type="submit" value="Add Comment" class="btn btn-primary">
+      <button type="cancel" class="btn btn-primary" onclick="window.location='@routes.HomeController.index()';return false;">Cancel</button>
+
+
+    </div>
+
+
+  }
+
+
+}

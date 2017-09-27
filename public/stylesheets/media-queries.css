@@ -1,0 +1,187 @@
+@media only screen and (max-width: 320px) {
+    main .col-7 {
+        width: 200px;
+    }
+
+    footer p {
+        line-height: 10px;
+    }
+
+    footer img {
+        max-width: 30%;
+        height: auto;
+    }
+
+    footer {
+        height: 450px;
+    }
+
+    .adminView {
+        display: none;
+    }
+
+    .specialVeg {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+
+    .specialBeef {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@media only screen and (max-width: 480px) {
+    main .col-7 {
+        width: 50%;
+    }
+
+    footer p {
+        line-height: 10px;
+    }
+
+    footer img {
+        max-width: 30%;
+        height: auto;
+    }
+
+    footer {
+        height: 450px;
+    }
+
+    .adminView {
+        display: none;
+    }
+
+    .specialVeg {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+
+    .specialBeef {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+
+}
+
+@media only screen and (max-width: 600px) {
+	/* For tablets: */
+	.col-m-1 {width: 8.33%;}
+	.col-m-2 {width: 16.66%;}
+	.col-m-3 {width: 25%;}
+	.col-m-4 {width: 33.33%;}
+	.col-m-5 {width: 41.66%;}
+	.col-m-6 {width: 50%;}
+	.col-m-7 {width: 58.33%;}
+	.col-m-8 {width: 66.66%;}
+	.col-m-9 {width: 75%;}
+	.col-m-10 {width: 83.33%;}
+	.col-m-11 {width: 91.66%;}
+	.col-m-12 {width: 100%;}
+
+    main .col-7 {
+        width: 50%;
+    }
+
+    footer {
+        height: 450px;
+    }
+
+    .adminView {
+        display: none;
+    }
+
+    .specialVeg {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+
+    .specialBeef {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+}
+
+@media screen and (max-width: 750px) {
+
+	#pagewrap {
+		width: 95%;
+	}
+
+  nav {
+		width: auto;
+  }
+
+    footer p {
+        line-height: 10px;
+    }
+
+    footer img {
+        max-width: 30%;
+        height: auto;
+    }
+
+  #mainNav {
+		display: none;
+	}
+
+	/* Style The Dropdown Button */
+.dropbtn {
+    background-color: #FFF3C3	;
+		font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+		font-size: 16px;
+		border: none;
+		border-left: 1px solid #576979;
+    cursor: pointer;
+		line-height: 68px;
+		width: 100px;
+		margin-right: 0px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+    position: relative;
+    display: inline-block;
+		float: right;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #FFF3C3;
+    min-width: 160px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+}
+
+nav ul {
+		width: 100%;
+}
+[class*="col-"] {
+	width: 80%;
+	}
+
+footer {
+	height: 450px;
+}
+
+    .adminView {
+        display: none;
+    }
+
+    .specialVeg {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+
+    .specialBeef {
+        -ms-transform: rotate(0deg);
+        -webkit-transform: rotate(0deg);
+    }
+}

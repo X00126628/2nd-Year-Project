@@ -1,0 +1,46 @@
+@import models.users.User
+@(addProductForm: Form[models.Product], user: User)
+
+@import helper._
+@main("addPruduct", user) {
+
+    <h3>Add a new Product</h3>
+
+    @form(action = routes.HomeController.addProductSubmit(), 'class -> "form-horizontal", 'role ->"form") {
+
+        @inputText(addProductForm("name"), '_label -> "Name", 'class -> "form-control")
+        @inputText(addProductForm("description"), '_label -> "Description", 'class -> "form-control")
+        @inputText(addProductForm("price"), '_label -> "Price", 'class -> "form-control")
+        @inputText(addProductForm("type"), '_label -> "Type", 'class -> "form-control")
+        @inputText(addProductForm("inStock"), '_label -> "In Stock", 'class -> "form-control")
+
+        <!-- Hidden ID field - required for each field -->
+        @inputText(addProductForm("id"), '_label -> "", 'hidden -> "hidden")
+
+        <div class="action">
+            <input type="submit" value="Add Product" class="btn btn-success">
+            <button type="cancel" onclick="window.location='@routes.HomeController.index()';return false;" class="btn btn-success">Cancel</button>
+
+
+        </div>
+    }
+    <!--
+        <form>
+            ID: <br>
+            <input type="number" name="id" min="1" max="5">
+            Name: <br>
+            <input type="text" name="name" value="Enter Name">
+            Descripion: <br>
+            <input type="text" name="description" value="Enter description">
+            Price: <br>
+            <input type="number" step="0.01" name="price" value="0.00">
+            Type: <br>
+            <input type="text" name="type" value="Enter the meal type">
+            In Stock? <br>
+            <select>
+                <option value="true">In Stock</option>
+                <option value="false">Out of Stock</option>
+            </select>
+        </form>
+    -->
+}

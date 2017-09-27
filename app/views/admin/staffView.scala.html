@@ -1,0 +1,95 @@
+@import models.users.User
+@(staffView: List[models.shopping.ShopOrder], user: User)
+
+@import helper._
+
+@main("staffView", user) {
+
+  <h3>Orders</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Customer</th>
+        <th>Order Date</th>
+        <th>Items</th>
+        <th>Quantity</th>
+        <th>Total Price</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+  <tbody>
+
+
+        <!-- Start of for loop - for each product add the approprate html elements -->
+      @for(value <- staffView) {
+
+        <tr>
+          <td><h5><strong>@value.getId()</strong></h5></td>
+          <td> <p>@value.getName()</p></td>
+          <td><p>@value.getOrderDate()</p></td>
+          <td><p>@value.itemsList()</p></td>
+         <td><p>@value.quantity()</p></td>
+          <td><h5>&euro; @("%.2f".format(value.getOrderTotal))</h5></td>
+          <td>
+            <a href="@routes.ShoppingController.deleteOrder(value.getId)"  onclick="return confirmDel();">
+              <button class="btn btn-success">Complete</button>
+            </a>
+          </td>
+        </tr>
+      }  <!-- End of the Loop -->
+
+    </tbody>
+  </table>
+
+  <h3>Reservation</h3>
+
+  <table class="table table-bordered">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Email</th>
+        <th>Phone</th>
+        <th>Date</th>
+        <th>Number of People</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+
+
+        <!-- Start of for loop - for each product add the approprate html elements -->
+      @for(value <- Reservations.findAll()) {
+
+        <tr>
+          <td><h5><strong>@value.getId()</strong></h5></td>
+          <td><p>@value.getName</p></td>
+          <td> <p>@value.getEmail()</p></td>
+          <td><p>@value.getPhone()</p></td>
+          <td><p>@value.getDate()</p></td>
+          <td><p>@value.getNumber_People()</p></td>
+          <td>
+            <a href="@routes.ReservationsController.deleteReservation(value.getId)"  onclick="return confirmDel();">
+              <button class="btn btn-success">Delete</button>
+            </a>
+        </tr>
+      }  <!-- End of the Loop -->
+
+    </tbody>
+  </table>
+
+
+  <script>
+            function confirmDel(){
+                return confirm('Are you sure?');
+            }
+
+            </script>
+
+}
+
+
+
+
